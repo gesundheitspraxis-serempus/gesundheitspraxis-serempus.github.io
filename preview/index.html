@@ -18,7 +18,7 @@ title: Gesundheits Praxis (Preview)
   <meta name="theme-color" content="#683C11">
   <link rel="preload" href="/assets/images/logo_full.webp" as="image" imagesrcset="/assets/images/logo_full.webp 1x">
   <link rel="preload" href="/assets/images/logo_single.webp" as="image" imagesrcset="/assets/images/logo_single.webp 1x">
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css?v={{ site.time | date: '%s' }}">
 </head>
 <body>
   <header id="top" class="site-header" role="banner">
@@ -42,7 +42,7 @@ title: Gesundheits Praxis (Preview)
   </header>
 
   <main id="start" class="site-main" role="main">
-    {% include section-hero.html %}
+    {% include section-start.html %}
     {% include section-therapie.html %}
     {% include section-ueber-mich.html %}
     {% include section-kontakt.html %}
