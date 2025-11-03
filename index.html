@@ -1,47 +1,40 @@
 ---
 layout: none
-title: Gesundheits Praxis
+title: Gesundheits Praxis – Eröffnung bald
 ---
 <!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Gesundheits Praxis – Désirée Serempus">
-  <title>Gesundheits Praxis – Désirée Serempus</title>
+  <meta name="robots" content="noindex">
+  <meta name="description" content="Gesundheits Praxis – Désirée Serempus – Eröffnung bald">
+  <title>Gesundheits Praxis – Désirée Serempus – Eröffnung bald</title>
   <link rel="preload" href="/assets/images/logo_full.webp" as="image" imagesrcset="/assets/images/logo_full.webp 1x">
-  <link rel="preload" href="/assets/images/logo_single.webp" as="image" imagesrcset="/assets/images/logo_single.webp 1x">
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    :root { --title: #683C11; --accent: #00A19A; }
+    html, body { height: 100%; }
+    body { margin: 0; background: #fff; font-family: "Avenir Next", Avenir, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif; color: #222; }
+    .wrap { min-height: 100%; display: grid; place-items: center; padding: 24px; position: relative; }
+    .card { text-align: center; max-width: 700px; }
+    .logo { width: 160px; height: auto; margin: 0 auto 16px; display: block; }
+    h1 { margin: 0 0 6px 0; font-size: 2rem; color: var(--title); }
+    p { margin: 0 0 18px 0; color: #555; }
+    .btn { display: inline-block; background: var(--accent); color: #fff; padding: 12px 18px; border-radius: 8px; font-weight: 600; }
+    .wm { position: fixed; inset: 0; background: url('/assets/images/logo_single.webp') no-repeat center/ min(60vw, 700px); opacity: .05; pointer-events: none; z-index: -1; }
+  </style>
+  <link rel="icon" href="/assets/images/logo.png">
+  <link rel="apple-touch-icon" href="/assets/images/logo.png">
 </head>
 <body>
-  <header id="top" class="site-header" role="banner">
-    <div class="container header-inner">
-      <a class="brand" href="#start" aria-label="Start">
-        <img class="brand-logo" src="/assets/images/logo_full.webp" alt="Gesundheits Praxis – Logo">
-      </a>
-      <div class="brand-text">
-        <h1 class="site-title">Gesundheits Praxis</h1>
-        <p class="site-subtitle">Désirée Serempus</p>
-      </div>
-      <nav class="site-nav" role="navigation" aria-label="Hauptnavigation">
-        <ul>
-          <li><a href="#start">Start</a></li>
-          <li><a href="#therapie">Therapie</a></li>
-          <li><a href="#ueber-mich">Über mich</a></li>
-          <li><a href="#kontakt">Terminbuchen / Kontakt</a></li>
-        </ul>
-      </nav>
+  <div class="wm" aria-hidden="true"></div>
+  <main class="wrap" role="main">
+    <div class="card">
+      <img class="logo" src="/assets/images/logo_full.webp" alt="Gesundheits Praxis – Logo">
+      <h1>Eröffnung bald</h1>
+      <p>Die Website befindet sich im Aufbau. Vielen Dank für Ihre Geduld.</p>
     </div>
-  </header>
-
-  <main id="start" class="site-main" role="main">
-    {% include section-hero.html %}
-    {% include section-therapie.html %}
-    {% include section-ueber-mich.html %}
-    {% include section-kontakt.html %}
   </main>
-
-  {% include site-footer.html %}
 </body>
 </html>
 
