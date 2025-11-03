@@ -1,0 +1,10 @@
+title: "Gesundheits Praxis"
+description: "Désirée Serempus"
+url: "https://gesundheitspraxis-serempus.ch"
+baseurl: ""
+markdown: kramdown
+exclude:
+  - README.md
+permalink: pretty
+
+

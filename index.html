@@ -1,0 +1,48 @@
+---
+layout: none
+title: Gesundheits Praxis
+---
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Gesundheits Praxis – Désirée Serempus">
+  <title>Gesundheits Praxis – Désirée Serempus</title>
+  <link rel="preload" href="/assets/images/logo_full.webp" as="image" imagesrcset="/assets/images/logo_full.webp 1x">
+  <link rel="preload" href="/assets/images/logo_single.webp" as="image" imagesrcset="/assets/images/logo_single.webp 1x">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <header id="top" class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="#start" aria-label="Start">
+        <img class="brand-logo" src="/assets/images/logo_full.webp" alt="Gesundheits Praxis – Logo">
+      </a>
+      <div class="brand-text">
+        <h1 class="site-title">Gesundheits Praxis</h1>
+        <p class="site-subtitle">Désirée Serempus</p>
+      </div>
+      <nav class="site-nav" role="navigation" aria-label="Hauptnavigation">
+        <ul>
+          <li><a href="#start">Start</a></li>
+          <li><a href="#therapie">Therapie</a></li>
+          <li><a href="#ueber-mich">Über mich</a></li>
+          <li><a href="#kontakt">Terminbuchen / Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="start" class="site-main" role="main">
+    {% include section-hero.html %}
+    {% include section-therapie.html %}
+    {% include section-ueber-mich.html %}
+    {% include section-kontakt.html %}
+  </main>
+
+  {% include site-footer.html %}
+</body>
+</html>
+
+
