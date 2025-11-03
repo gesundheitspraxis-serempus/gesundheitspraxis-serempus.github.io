@@ -391,6 +391,14 @@ body::before {
     font-size: 0.9rem;
   }
 
+  /* Header layout for hamburger menu */
+  .header-inner {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
   /* Hamburger menu */
   .menu-toggle {
     display: flex;
