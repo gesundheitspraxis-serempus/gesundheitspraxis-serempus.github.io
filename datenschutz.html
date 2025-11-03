@@ -12,25 +12,7 @@ title: Datenschutz – Gesundheits Praxis
   <link rel="stylesheet" href="/assets/css/style.css?v={{ site.time | date: '%s' }}">
 </head>
 <body>
-  <header id="top" class="site-header" role="banner">
-    <div class="container header-inner">
-      <a class="brand" href="/#start" aria-label="Start">
-        <img class="brand-logo" src="/assets/images/logo_full.webp" alt="Gesundheits Praxis – Logo">
-      </a>
-      <div class="brand-text">
-        <h1 class="site-title">Gesundheits Praxis</h1>
-        <p class="site-subtitle">Désirée Serempus</p>
-      </div>
-      <nav class="site-nav" role="navigation" aria-label="Hauptnavigation">
-        <ul>
-          <li><a href="/#start">Start</a></li>
-          <li><a href="/#therapie">Therapie</a></li>
-          <li><a href="/#ueber-mich">über mich</a></li>
-          <li><a href="/#kontakt">Terminbuchen / Kontakt</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  {% include site-header.html %}
 
   <main class="site-main" role="main">
     <section class="section" aria-labelledby="datenschutz-title">
