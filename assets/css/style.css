@@ -186,7 +186,7 @@ body::before {
    Content Sections
    ============================================ */
 .section {
-  padding: 72px 0;
+  padding: 96px 0 0 0;
   scroll-margin-top: calc(var(--header-height) + 20px);
 }
 
@@ -208,7 +208,11 @@ body::before {
 
 /* Start section */
 .section-start {
-  padding: 96px 0 72px 0;
+  padding: 96px 0 0 0;
+}
+
+.section-end {
+  padding: 96px 0 96px 0;
 }
 
 .start-grid {
