@@ -4,12 +4,13 @@
 :root {
   --color-title: #683C11; /* CMYK 40,70,100,50 */
   --color-subtitle: #00A19A; /* CMYK 80,10,45,0 */
+  --color-header-bg: #E6D5BC; /* sandiges Braun – lesbare braune Schrift */
   --color-bg: #ffffff;
   --color-text: #222222;
   --color-muted: #555555;
   --container-max: 1100px;
   --radius: 8px;
-  --header-height: 84px; /* approximate; adjust if header size changes */
+  --header-height: 120px; /* header + compact slogan */
 }
 
 /* ============================================
@@ -80,15 +81,15 @@ body::before {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: var(--color-title);
-  color: #ffffff;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  background: var(--color-header-bg);
+  color: var(--color-title);
+  box-shadow: 0 2px 10px rgba(104, 60, 17, 0.12);
 }
 
 .header-inner {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
   padding: 14px 0;
   min-height: var(--header-height);
 }
@@ -111,13 +112,35 @@ body::before {
   margin: 0;
   font-size: 1.35rem;
   font-weight: 600;
-  color: #ffffff;
+  color: var(--color-title);
 }
 
 .site-subtitle {
   margin: 0;
   font-size: 0.95rem;
-  color: #c9fffb; /* subtle tint toward subtitle brand */
+  color: var(--color-subtitle);
+}
+
+.slogan-bar {
+  border-top: 1px solid rgba(104, 60, 17, 0.15);
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.site-slogan {
+  margin: 0;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 0.95rem;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  line-height: 1.45;
+  color: var(--color-title);
+}
+
+.site-slogan .slogan-sep {
+  margin: 0 0.55em;
+  opacity: 0.55;
+  font-style: normal;
 }
 
 .site-nav {
@@ -129,19 +152,47 @@ body::before {
   padding: 0;
   list-style: none;
   display: flex;
-  gap: 22px;
+  gap: 10px;
   flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .site-nav a {
-  color: #ffffff;
-  padding: 10px 6px;
+  color: var(--color-title);
+  padding: 8px 6px;
   border-radius: 4px;
+  font-size: 0.95rem;
+  white-space: nowrap;
 }
 
 .site-nav a:hover,
 .site-nav a:focus {
-  background: rgba(255,255,255,0.12);
+  background: rgba(104, 60, 17, 0.1);
+}
+
+.coming-soon {
+  display: inline-block;
+  margin-left: 2px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-subtitle);
+  vertical-align: middle;
+}
+
+.coming-soon-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--color-subtitle);
+  border-radius: 4px;
+  vertical-align: middle;
 }
 
 /* Hamburger menu button */
@@ -152,7 +203,7 @@ body::before {
   cursor: pointer;
   padding: 8px;
   margin-left: auto;
-  color: #ffffff;
+  color: var(--color-title);
   flex-direction: column;
   gap: 5px;
   width: 32px;
@@ -165,7 +216,7 @@ body::before {
   display: block;
   width: 24px;
   height: 2px;
-  background: #ffffff;
+  background: var(--color-title);
   transition: all 0.3s ease;
   border-radius: 2px;
 }
@@ -201,6 +252,11 @@ body::before {
   margin: 0 0 14px 0;
 }
 
+.section strong {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
 .section ul {
   color: var(--color-muted);
   margin: 0 0 14px 20px;
@@ -217,7 +273,7 @@ body::before {
 
 .start-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
   gap: 48px;
   align-items: start;
 }
@@ -228,9 +284,15 @@ body::before {
 }
 
 .start-title {
-  margin: 0 0 8px 0;
+  margin: 0 0 16px 0;
   font-size: 2.2rem;
   color: var(--color-title);
+}
+
+.starter-text {
+  margin: 0 0 24px 0;
+  font-size: 1.08rem;
+  color: var(--color-text);
 }
 
 .start-sub {
@@ -240,10 +302,9 @@ body::before {
 }
 
 .start-image {
-  position: relative;
+  position: sticky;
+  top: calc(var(--header-height) + 24px);
   width: 100%;
-  height: 100%;
-  min-height: 400px;
   display: flex;
   align-items: start;
   justify-content: center;
@@ -251,7 +312,8 @@ body::before {
 
 .start-image img {
   width: 100%;
-  height: 100%;
+  height: auto;
+  max-height: min(70vh, 560px);
   object-fit: cover;
   border-radius: var(--radius);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
@@ -288,6 +350,143 @@ body::before {
 
 .about-content p {
   margin: 0 0 16px 0;
+}
+
+.lead {
+  font-size: 1.1rem;
+  color: var(--color-title);
+  margin: 0 0 18px 0;
+}
+
+.section-intro {
+  max-width: 46rem;
+}
+
+.subsection-title {
+  margin: 28px 0 12px 0;
+  font-size: 1.35rem;
+  color: var(--color-title);
+  font-weight: 600;
+}
+
+.topic-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 32px;
+  margin: 0 0 14px 0;
+  padding-left: 1.2em;
+  max-width: 40rem;
+}
+
+.therapie-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px 40px;
+  margin: 36px 0 40px 0;
+}
+
+.therapie-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.therapie-card-image {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 14px rgba(104, 60, 17, 0.12);
+}
+
+.therapie-card h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.25rem;
+  color: var(--color-title);
+}
+
+.therapie-card p:last-child {
+  margin-bottom: 0;
+}
+
+.method-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  margin: 28px 0;
+}
+
+.method-item h3 {
+  margin: 12px 0 8px 0;
+  font-size: 1.2rem;
+  color: var(--color-title);
+}
+
+.method-image {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 14px rgba(104, 60, 17, 0.12);
+}
+
+.spectrum-heading {
+  margin: 8px 0 12px 0;
+  font-size: 1.45rem;
+  color: var(--color-title);
+}
+
+.spectrum-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px 36px;
+  margin: 28px 0 40px 0;
+}
+
+.spectrum-item {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.spectrum-image {
+  flex: 0 0 96px;
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 14px rgba(104, 60, 17, 0.12);
+}
+
+.spectrum-image--placeholder {
+  background: linear-gradient(145deg, #efe2cb, #d9c4a3);
+}
+
+.spectrum-body {
+  min-width: 0;
+  flex: 1;
+}
+
+.spectrum-title {
+  margin: 0 0 6px 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #C4A035; /* gelb laut Briefing */
+}
+
+.spectrum-subtitle {
+  margin: 10px 0 6px 0;
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--color-title);
+}
+
+.costs-block {
+  margin-top: 12px;
+  padding: 28px 0 0 0;
+  border-top: 1px solid rgba(104, 60, 17, 0.12);
+  max-width: 46rem;
 }
 
 /* ============================================
@@ -381,6 +580,20 @@ body::before {
     padding-left: 0;
     padding-right: 0;
   }
+  .site-slogan {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .site-nav ul {
+    gap: 6px;
+  }
+  .site-nav a {
+    font-size: 0.88rem;
+    padding: 8px 4px;
+  }
 }
 
 @media (max-width: 900px) {
@@ -463,11 +676,42 @@ body::before {
     max-width: 300px;
     margin: 0 auto;
   }
+
+  .method-grid,
+  .spectrum-grid,
+  .therapie-grid,
+  .topic-list {
+    grid-template-columns: 1fr;
+  }
+
+  .spectrum-item {
+    flex-direction: column;
+  }
+
+  .spectrum-image {
+    width: 88px;
+    height: 88px;
+    flex-basis: 88px;
+  }
+
+  .start-image {
+    position: static;
+  }
+
+  .site-slogan {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .site-slogan .slogan-sep {
+    display: none;
+  }
 }
 
 @media (max-width: 640px) {
   :root {
-    --header-height: 96px;
+    --header-height: 150px;
   }
   .header-inner {
     flex-wrap: wrap;

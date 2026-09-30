@@ -1,11 +1,14 @@
 <header id="top" class="site-header" role="banner">
   <div class="container header-inner">
-    {% if page.url contains '/preview' or page.url == '/' or page.url == '/index.html' %}
+    {% comment %} While the root is a coming-soon page, section anchors live under /preview/ {% endcomment %}
+    {% if page.url contains '/preview' %}
       {% assign link_prefix = '' %}
+      {% assign home_href = '/preview/' %}
     {% else %}
-      {% assign link_prefix = '/' %}
+      {% assign link_prefix = '/preview' %}
+      {% assign home_href = '/preview/' %}
     {% endif %}
-    <a class="brand" href="{{ link_prefix }}#start" aria-label="Start">
+    <a class="brand" href="{{ home_href }}#willkommen" aria-label="Willkommen">
       <img class="brand-logo" src="/assets/images/logo_full.webp" alt="Gesundheits Praxis – Logo">
     </a>
     <div class="brand-text">
@@ -19,26 +22,36 @@
     </button>
     <nav class="site-nav" role="navigation" aria-label="Hauptnavigation">
       <ul>
-        <li><a href="{{ link_prefix }}#start">Start</a></li>
+        <li><a href="{{ link_prefix }}#willkommen">Willkommen</a></li>
         <li><a href="{{ link_prefix }}#therapie">Therapie</a></li>
+        <li><a href="{{ link_prefix }}#angebot">Angebot</a></li>
         <li><a href="{{ link_prefix }}#ueber-mich">Über mich</a></li>
-        <li><a href="{{ link_prefix }}#kontakt">Terminbuchen / Kontakt</a></li>
+        <li><a href="{{ link_prefix }}#kurse" class="nav-coming-soon">Kurse <span class="coming-soon">bald</span></a></li>
+        <li><a href="{{ link_prefix }}#kontakt">Kontakt</a></li>
       </ul>
     </nav>
+  </div>
+  <div class="slogan-bar">
+    <p class="site-slogan">
+      <span>Diese Website soll eine Einladung sein.</span>
+      <span class="slogan-sep" aria-hidden="true">·</span>
+      <span>Zu einem ersten inneren Gespräch.</span>
+      <span class="slogan-sep" aria-hidden="true">·</span>
+      <span>Und vielleicht auch zu einem persönlichen.</span>
+    </p>
   </div>
 </header>
 <script>
   (function() {
     const menuToggle = document.querySelector('.menu-toggle');
     const siteNav = document.querySelector('.site-nav');
-    
+
     if (menuToggle && siteNav) {
       menuToggle.addEventListener('click', function() {
         const isActive = this.classList.toggle('active');
         siteNav.classList.toggle('active');
         this.setAttribute('aria-expanded', isActive);
-        
-        // Close menu when clicking a link
+
         const navLinks = siteNav.querySelectorAll('a');
         navLinks.forEach(link => {
           link.addEventListener('click', function() {
@@ -51,4 +64,3 @@
     }
   })();
 </script>
-
