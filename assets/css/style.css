@@ -253,8 +253,29 @@ body::before {
 }
 
 .section strong {
-  color: var(--color-text);
+  color: var(--color-subtitle);
   font-weight: 700;
+}
+
+.section a {
+  color: var(--color-subtitle);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.section a:hover {
+  filter: brightness(0.9);
+}
+
+.education-year {
+  margin: 18px 0 6px 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-title);
+}
+
+.education-year:first-of-type {
+  margin-top: 8px;
 }
 
 .section ul {
@@ -308,8 +329,11 @@ body::before {
 
 .section p.starter-text {
   margin: 72px 0;
-  font-size: 1.08rem;
-  color: var(--color-text);
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+  color: var(--color-subtitle);
 }
 
 .start-sub {
@@ -464,6 +488,22 @@ body::before {
   color: var(--color-title);
 }
 
+.legal-page h3 {
+  margin: 28px 0 10px 0;
+  font-size: 1.2rem;
+  color: var(--color-title);
+}
+
+.legal-page h3:first-of-type {
+  margin-top: 18px;
+}
+
+.legal-meta {
+  margin-top: 28px;
+  font-size: 0.95rem;
+  color: var(--color-muted);
+}
+
 .costs-block {
   margin-top: 64px;
   padding: 0;
@@ -524,17 +564,21 @@ body::before {
   margin: 0 0 6px 0;
 }
 
-.button {
+.button,
+.section a.button {
   display: inline-block;
   background: var(--color-subtitle);
   color: #ffffff;
   padding: 12px 18px;
   border-radius: var(--radius);
   font-weight: 600;
+  text-decoration: none;
 }
 
-.button:hover {
+.button:hover,
+.section a.button:hover {
   filter: brightness(0.95);
+  color: #ffffff;
 }
 
 .section-divider {
@@ -647,6 +691,7 @@ body::before {
   }
   .section p.starter-text {
     margin: 48px 0;
+    font-size: 1.25rem;
   }
 
   /* Start section */
