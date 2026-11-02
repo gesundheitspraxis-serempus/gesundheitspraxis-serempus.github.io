@@ -263,8 +263,8 @@ body::before {
 }
 
 /* Start section */
-.section-start {
-  padding: 96px 0 0 0;
+.section.section-start {
+  padding-top: 0;
 }
 
 .section-end {
@@ -274,13 +274,30 @@ body::before {
 .start-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-  gap: 48px;
+  grid-template-areas:
+    "title ."
+    "copy image";
+  column-gap: 48px;
   align-items: start;
 }
 
+.start-grid > h2 {
+  grid-area: title;
+}
+
 .start-copy {
+  grid-area: copy;
   display: flex;
   flex-direction: column;
+}
+
+.start-image {
+  grid-area: image;
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: center;
 }
 
 .start-title {
@@ -289,8 +306,8 @@ body::before {
   color: var(--color-title);
 }
 
-.starter-text {
-  margin: 0 0 24px 0;
+.section p.starter-text {
+  margin: 72px 0;
   font-size: 1.08rem;
   color: var(--color-text);
 }
@@ -299,15 +316,6 @@ body::before {
   margin: 0;
   font-size: 1.05rem;
   color: var(--color-muted);
-}
-
-.start-image {
-  position: sticky;
-  top: calc(var(--header-height) + 24px);
-  width: 100%;
-  display: flex;
-  align-items: start;
-  justify-content: center;
 }
 
 .start-image img {
@@ -378,38 +386,6 @@ body::before {
   max-width: 40rem;
 }
 
-.therapie-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 32px 40px;
-  margin: 36px 0 40px 0;
-}
-
-.therapie-card {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.therapie-card-image {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 14px;
-  box-shadow: 0 4px 14px rgba(104, 60, 17, 0.12);
-}
-
-.therapie-card h3 {
-  margin: 0 0 10px 0;
-  font-size: 1.25rem;
-  color: var(--color-title);
-}
-
-.therapie-card p:last-child {
-  margin-bottom: 0;
-}
-
 .method-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -468,6 +444,12 @@ body::before {
   flex: 1;
 }
 
+.spectrum-body h3 {
+  margin: 0 0 6px 0;
+  font-size: 1.2rem;
+  color: var(--color-title);
+}
+
 .spectrum-title {
   margin: 0 0 6px 0;
   font-size: 1.2rem;
@@ -483,10 +465,19 @@ body::before {
 }
 
 .costs-block {
-  margin-top: 12px;
-  padding: 28px 0 0 0;
-  border-top: 1px solid rgba(104, 60, 17, 0.12);
+  margin-top: 64px;
+  padding: 0;
   max-width: 46rem;
+}
+
+.costs-block::before {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 100%;
+  max-width: calc(var(--container-max) - 40px);
+  background: linear-gradient(to right, rgba(0,161,154,0), rgba(0,161,154,0.55), rgba(0,161,154,0));
+  margin: 0 0 48px 0;
 }
 
 /* ============================================
@@ -547,10 +538,11 @@ body::before {
 }
 
 .section-divider {
-  height: 1px;
-  width: 100%;
-  background: linear-gradient(to right, rgba(104,60,17,0), rgba(104,60,17,0.25), rgba(104,60,17,0));
-  margin: 96px 0 0 0;
+  height: 2px;
+  width: calc(100% - 40px);
+  max-width: calc(var(--container-max) - 40px);
+  background: linear-gradient(to right, rgba(0,161,154,0), rgba(0,161,154,0.55), rgba(0,161,154,0));
+  margin: 96px auto 0;
 }
 
 /* ============================================
@@ -649,18 +641,25 @@ body::before {
   .section {
     padding: 64px 0;
   }
+  .section.section-start {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .section p.starter-text {
+    margin: 48px 0;
+  }
 
   /* Start section */
   .start-grid {
     grid-template-columns: 1fr;
+    grid-template-areas:
+      "title"
+      "copy"
+      "image";
     gap: 32px;
-  }
-  .start-copy {
-    order: 1;
   }
   .start-image {
     min-height: 300px;
-    order: 2;
   }
 
   /* About section */
@@ -679,7 +678,6 @@ body::before {
 
   .method-grid,
   .spectrum-grid,
-  .therapie-grid,
   .topic-list {
     grid-template-columns: 1fr;
   }
@@ -692,10 +690,6 @@ body::before {
     width: 88px;
     height: 88px;
     flex-basis: 88px;
-  }
-
-  .start-image {
-    position: static;
   }
 
   .site-slogan {
