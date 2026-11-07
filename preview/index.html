@@ -1,37 +1,19 @@
 ---
 layout: none
-title: Gesundheits Praxis (Preview)
+title: Redirect
+permalink: /preview/
 ---
 <!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Gesundheits Praxis – Désirée Serempus (Preview)">
+  <meta http-equiv="refresh" content="0; url=/">
+  <link rel="canonical" href="/">
   <meta name="robots" content="noindex">
-  <title>Gesundheits Praxis – Désirée Serempus (Preview)</title>
-  <link rel="icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <meta name="theme-color" content="#E6D5BC">
-  <link rel="preload" href="/assets/images/logo_full.webp" as="image" imagesrcset="/assets/images/logo_full.webp 1x">
-  <link rel="preload" href="/assets/images/logo_single.webp" as="image" imagesrcset="/assets/images/logo_single.webp 1x">
-  <link rel="stylesheet" href="/assets/css/style.css?v={{ site.time | date: '%s' }}">
+  <title>Weiterleitung…</title>
+  <script>location.replace('/');</script>
 </head>
 <body>
-  {% include site-header.html %}
-
-  <main id="start" class="site-main" role="main">
-    {% include section-start.html %}
-    {% include section-therapie.html %}
-    {% include section-angebot.html %}
-    {% include section-ueber-mich.html %}
-    {% include section-kurse.html %}
-    {% include section-kontakt.html %}
-  </main>
-
-  {% include site-footer.html %}
+  <p><a href="/">Zur Startseite</a></p>
 </body>
 </html>
