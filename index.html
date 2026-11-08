@@ -20,6 +20,8 @@ title: Gesundheits Praxis – Désirée Serempus
   <link rel="stylesheet" href="/assets/css/style.css?v={{ site.time | date: '%s' }}">
 </head>
 <body>
+  <!-- Anchor before sticky header so /#willkommen actually scrolls to page top -->
+  <div id="willkommen" tabindex="-1"></div>
   {% include site-header.html %}
 
   <main id="start" class="site-main" role="main">

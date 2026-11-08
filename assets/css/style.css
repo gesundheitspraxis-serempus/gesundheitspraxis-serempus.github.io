@@ -10,8 +10,6 @@
   --color-muted: #555555;
   --container-max: 1100px;
   --radius: 8px;
-  /* Full sticky header (bar + slogan) — used for anchor offset */
-  --header-offset: 180px;
 }
 
 /* ============================================
@@ -19,7 +17,6 @@
    ============================================ */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: var(--header-offset);
 }
 
 *, *::before, *::after {
@@ -239,7 +236,8 @@ body::before {
    ============================================ */
 .section {
   padding: 96px 0 0 0;
-  scroll-margin-top: var(--header-offset);
+  /* clear sticky header (bar + slogan) */
+  scroll-margin-top: 7.5rem;
 }
 
 .section h2 {
@@ -635,10 +633,6 @@ body::before {
 }
 
 @media (max-width: 900px) {
-  :root {
-    --header-offset: 230px;
-  }
-
   /* Header adjustments */
   .brand-logo {
     height: 48px;
@@ -757,9 +751,6 @@ body::before {
 }
 
 @media (max-width: 640px) {
-  :root {
-    --header-offset: 260px;
-  }
   .header-inner {
     flex-wrap: wrap;
     gap: 10px;
