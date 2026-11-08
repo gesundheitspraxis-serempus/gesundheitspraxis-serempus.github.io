@@ -695,17 +695,19 @@ body::before {
     font-size: 1.25rem;
   }
 
-  /* Start section */
+  /* Start section: image beside/under title so Willkommen isn't text-only */
   .start-grid {
     grid-template-columns: 1fr;
     grid-template-areas:
       "title"
-      "copy"
-      "image";
+      "image"
+      "copy";
     gap: 32px;
   }
   .start-image {
-    min-height: 300px;
+    min-height: 0;
+    max-width: 420px;
+    margin: 0 auto;
   }
 
   /* About section */
@@ -751,7 +753,8 @@ body::before {
 
 @media (max-width: 640px) {
   :root {
-    --header-height: 150px;
+    /* sticky header + slogan stack taller on small screens */
+    --header-height: 220px;
   }
   .header-inner {
     flex-wrap: wrap;

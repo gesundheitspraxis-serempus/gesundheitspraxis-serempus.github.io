@@ -7,8 +7,8 @@
       {% assign link_prefix = '/' %}
       {% assign home_href = '/' %}
     {% endif %}
-    <a class="brand js-scroll-top" href="{{ home_href }}" aria-label="Willkommen">
-      <img class="brand-logo" src="/assets/images/logo_full.webp" alt="Gesundheits Praxis – Logo">
+    <a class="brand" href="{{ home_href }}#willkommen" aria-label="Willkommen">
+      <img class="brand-logo" src="/assets/images/logo_full.webp" alt="Gesundheits Praxis – Logo" width="789" height="411" fetchpriority="high" decoding="async">
     </a>
     <div class="brand-text">
       <h1 class="site-title">Gesundheits Praxis</h1>
@@ -21,7 +21,7 @@
     </button>
     <nav class="site-nav" role="navigation" aria-label="Hauptnavigation">
       <ul>
-        <li><a class="js-scroll-top" href="{{ home_href }}">Willkommen</a></li>
+        <li><a href="{{ link_prefix }}#willkommen">Willkommen</a></li>
         <li><a href="{{ link_prefix }}#therapie">Therapie</a></li>
         <li><a href="{{ link_prefix }}#angebot">Angebot</a></li>
         <li><a href="{{ link_prefix }}#kosten">Kosten</a></li>
@@ -51,30 +51,15 @@
         const isActive = this.classList.toggle('active');
         siteNav.classList.toggle('active');
         this.setAttribute('aria-expanded', isActive);
+      });
 
-        const navLinks = siteNav.querySelectorAll('a');
-        navLinks.forEach(link => {
-          link.addEventListener('click', function() {
-            menuToggle.classList.remove('active');
-            siteNav.classList.remove('active');
-            menuToggle.setAttribute('aria-expanded', 'false');
-          });
+      siteNav.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          menuToggle.classList.remove('active');
+          siteNav.classList.remove('active');
+          menuToggle.setAttribute('aria-expanded', 'false');
         });
       });
     }
-
-    document.querySelectorAll('.js-scroll-top').forEach(function(link) {
-      link.addEventListener('click', function(event) {
-        const current = window.location.pathname.replace(/\/$/, '') || '/';
-        const targetPath = (link.pathname || '/').replace(/\/$/, '') || '/';
-        if (current === targetPath) {
-          event.preventDefault();
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-          if (history.replaceState) {
-            history.replaceState(null, '', '/');
-          }
-        }
-      });
-    });
   })();
 </script>
